@@ -19,31 +19,41 @@ public class Pokemon {
     private int numero;
     private String nome;
     private List<Tipo> tipos;
-    private int vida;
-    private float peso;
-    private int altura; //altura em centimetros
-    private boolean evolui;
+    private Pokemon evoluiPara; // Objeto Pokemon, próximo na linha evolutiva
+    // evoluiPara pode ser Null;
+    private int evoluiEm; // É o nivel que o pokemon passa para a próxima evolução
     // Construtor da Classe
+    private boolean lendario; // Para especie raras de pokemon
     public Pokemon() {
     }
     // Sobrecarga (OverLoad) do Construtor
     // Mesma função recebendo funções parametrizadas de forma diferente.
     public Pokemon(int numero, String nome,
-            List<Tipo> tipos, 
-            int vida, float peso, 
-            int altura, boolean evolui){
+            List<Tipo> tipos, Pokemon evoluiPara, int evoluiEm, boolean lendario){
         this.numero = numero;
         this.nome = nome;
         this.tipos = new ArrayList();
         for(Tipo t: tipos){
         this.tipos.add(t);
         }
-        this.vida = vida;
-        this.peso = peso;
-        this.altura = altura;
-        this.evolui = evolui;
-        
+        this.evoluiPara = new Pokemon();
+        this.evoluiPara = evoluiPara;
+        this.evoluiEm = evoluiEm;
+        this.lendario = lendario;
     }
+    
+    // Sobrecarga do construtor
+    public Pokemon(int numero, String nome,
+            List<Tipo> tipos, boolean ehLendario){
+        this.numero = numero;
+        this.nome = nome;
+        this.tipos = new ArrayList();
+        for(Tipo t: tipos){
+        this.tipos.add(t);
+        }
+        this.lendario = lendario;
+    }
+    
     public String getNome(){
         return this.nome;
     }
@@ -71,6 +81,19 @@ public class Pokemon {
         return this.tipos;
         
     }
+    
+    public Pokemon getEvolucaoPara() {
+        
+        return this.evoluiPara;
+    }
+    
+    public int getEvoluiEm() {
+        return this.evoluiEm;
+    }
+    
+    public boolean isLendario(){
+        return this.lendario;
+    }
     /**
      * Setters
      * Funções de atribuição de valores de valores de atributos da classe
@@ -92,6 +115,19 @@ public class Pokemon {
             this.tipos.add(t);
         }
      
+    }
+    
+    public void setEvoluiPara(Pokemon pokemon) {
+        this.evoluiPara = new Pokemon();
+        this.evoluiPara = pokemon;
+    }
+    
+    public void setEvoluiEm(int nivel) {
+        this.evoluiEm = nivel;
+    }
+    
+    public void setLendario(boolean ehLendario) {
+        this.lendario = ehLendario;
     }
     
     /* Função toString()

@@ -30,23 +30,41 @@ public class database {
     //criar as fraquezas
     // Criar as resistencias 
         Tipo aco = new Tipo("Aco");
+        tipos.add(aco);
         Tipo agua = new Tipo("Agua");
+        tipos.add(agua);
         Tipo dragao = new Tipo("Dragao");
+        tipos.add(dragao);
         Tipo eletrico = new Tipo("Eletrico");
+        tipos.add(eletrico);
         Tipo fada= new Tipo("Fada");
+        tipos.add(fada);
         Tipo fantasma= new Tipo("Fantasma");
+        tipos.add(fantasma);
         Tipo fogo= new Tipo("Fogo");
+        tipos.add(fogo);
         Tipo gelo= new Tipo("Gelo");
+        tipos.add(gelo);
         Tipo inseto= new Tipo("Inseto");
+        tipos.add(inseto);
         Tipo lutador=new Tipo("Lutador");
+        tipos.add(lutador);
         Tipo normal=new Tipo("Normal");
+        tipos.add(normal);
         Tipo pedra=new Tipo("Pedra");
+        tipos.add(pedra);
         Tipo planta=new Tipo("Planta");
+        tipos.add(planta);
         Tipo psiquico=new Tipo("Psiquico");
+        tipos.add(psiquico);
         Tipo sombrio=new Tipo("Sombrio");
+        tipos.add(sombrio);
         Tipo terrestre=new Tipo("Terrestre");
+        tipos.add(terrestre);
         Tipo venenoso=new Tipo("Venenoso");
+        tipos.add(venenoso);
         Tipo voador=new Tipo("Voador");
+        tipos.add(voador);
         
         // Adrian - Fraquezas do Aço
         List fraquezas = new ArrayList<>(List.of(fogo,terrestre,lutador));
@@ -190,7 +208,7 @@ public class database {
     }
     
     public void seeder(){
-
+    /*
     pokemons.add(new Pokemon(546, "Cottonee", 50,0.6f, 30, true)); //Adrian Kauan Aquino de Melo
     pokemons.add(new Pokemon(572, "Minccino", 50,5,4,true));//Ana Louise Lima Silva
     pokemons.add(new Pokemon(103, "Exeggutor", 140, 120, 200, true));//Ana Paula de O. de Freitas
@@ -214,7 +232,7 @@ public class database {
     pokemons.add(new Pokemon(179, "Mareep", "Eletrico", 60, 7.8f, 60, true));//Renan Pacheco Cavalcanti
     pokemons.add(new Pokemon(712, "Bergmite","Gelo",null, 70, 99.5f, 1,true));//Ryan Rigoto
     pokemons.add(new Pokemon(226, "Mantine","Água","Voador",85, 220f, 2,false));//WILLIAN WITTIENZO
-
+    */
     }
     
     public Pokemon buscaPokemon(int id){
@@ -222,6 +240,15 @@ public class database {
         for(Pokemon p: pokemons){
             if(p.getNumero() == id){
                 return p;
+            }
+        }
+        return null;
+    }
+    
+    public Tipo buscaTipo(String nome) {
+        for(Tipo t: tipos) {
+            if(t.getNome() == nome) {
+                return t;
             }
         }
         return null;
