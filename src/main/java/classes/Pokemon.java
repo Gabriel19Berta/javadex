@@ -5,6 +5,7 @@
 package classes;
 import java.util.List;
 import java.util.ArrayList;
+import database.database;
 
 
 
@@ -21,39 +22,43 @@ public class Pokemon {
     private List<Tipo> tipos;
     private Pokemon evoluiPara; // Objeto Pokemon, próximo na linha evolutiva
     // evoluiPara pode ser Null;
-    private int evoluiEm; // É o nivel que o pokemon passa para a próxima evolução
+    private int evoluiEm; // É o nível que o Pokemon passa para a próxima evolução
     // Construtor da Classe
-    private boolean lendario; // Para especie raras de pokemon
+    private boolean lendario; // Para especies raras de Pokemon.
+    
+    //Construtor
     public Pokemon() {
     }
     // Sobrecarga (OverLoad) do Construtor
     // Mesma função recebendo funções parametrizadas de forma diferente.
     public Pokemon(int numero, String nome,
             List<Tipo> tipos, Pokemon evoluiPara, int evoluiEm, boolean lendario){
+        
         this.numero = numero;
         this.nome = nome;
         this.tipos = new ArrayList();
         for(Tipo t: tipos){
-        this.tipos.add(t);
+            this.tipos.add(t);
         }
-        this.evoluiPara = new Pokemon();
-        this.evoluiPara = evoluiPara;
-        this.evoluiEm = evoluiEm;
+        if(evoluiPara != null){
+            this.evoluiPara = new Pokemon();
+            this.evoluiPara = evoluiPara;
+            this.evoluiEm = evoluiEm;
+        }
         this.lendario = lendario;
     }
-    
-    // Sobrecarga do construtor
-    public Pokemon(int numero, String nome,
-            List<Tipo> tipos, boolean ehLendario){
+    //Sobrecarga do construtor
+        public Pokemon(int numero, String nome,
+            List<Tipo> tipos, boolean lendario){
         this.numero = numero;
         this.nome = nome;
         this.tipos = new ArrayList();
         for(Tipo t: tipos){
-        this.tipos.add(t);
+            this.tipos.add(t);
         }
         this.lendario = lendario;
     }
-    
+        
     public String getNome(){
         return this.nome;
     }
@@ -82,12 +87,11 @@ public class Pokemon {
         
     }
     
-    public Pokemon getEvolucaoPara() {
-        
+    public Pokemon getEvoluiPara(){
         return this.evoluiPara;
     }
     
-    public int getEvoluiEm() {
+    public int getEvoluiEm(){
         return this.evoluiEm;
     }
     
@@ -117,16 +121,16 @@ public class Pokemon {
      
     }
     
-    public void setEvoluiPara(Pokemon pokemon) {
+    public void setEvoluiPara(Pokemon pokemon){
         this.evoluiPara = new Pokemon();
         this.evoluiPara = pokemon;
     }
     
-    public void setEvoluiEm(int nivel) {
+    public void setEvoluiEm (int nivel){
         this.evoluiEm = nivel;
     }
     
-    public void setLendario(boolean ehLendario) {
+    public void setLendario(boolean ehLendario){
         this.lendario = ehLendario;
     }
     

@@ -16,16 +16,11 @@ public class main {
     public static void main(String[] args) {
         //Pokemon(Numero, Nome, Tipo1, Tipo2?, vida, peso, altura, evolui)
             database bd = new database();
+            bd.inicialize();
+            Pokemon pikachu = bd.buscaPokemon("Diglett");
             
-            Tipo pedra = bd.buscaTipo("Pedra");
-            List tipos_do_pikachu = new ArrayList<>(List.of(bd.buscaTipo("Eletrico")));
-            
-            System.out.println(pedra.getFraquezas());
-            
-            Pokemon raichu = new Pokemon(26, "Raichu",tipos_do_pikachu, false);//Pedro Baleroni
-            Pokemon pikachu = new Pokemon(25, "Pikachu",tipos_do_pikachu, raichu, 30, false);
-            
-            System.out.println(pikachu.getTipoFraquezas());
+          
+            System.out.println(pikachu.getEvoluiPara().getNome());
             
         }
 }
